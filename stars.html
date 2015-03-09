@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #container {
+            width: 450px;
+            height: 450px;
+        }
+        .comm {
+            display: table-cell;
+            width: 400px;
+            height: 50px;
+            background: rgb(255, 117, 117);
+            position: absolute;
+            font-size: 3em;
+            font-weight: bold;
+            color: white;
+            vertical-align:middle;
+
+        }
+        #right {
+            left: 233px;
+            top: 183px;
+            background: rgb(151, 255, 235);
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+        #bottom {
+            top: 408px;
+            left: 58px;
+            background: rgb(228, 167, 255);
+            text-align: right;
+        }
+        #left {
+            left: -167px;
+            top: 233px;
+            background: rgb(174, 255, 166);
+
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+            text-align: right;
+        }
+        #inner{
+            background-color: #ff9645;
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            top: 58px;
+            left: 58px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!--<div id="display"></div>-->
+    <div id="container">
+        <div id="top" class="comm"></div>
+        <div id="right" class="comm"></div>
+        <div id="bottom" class="comm"></div>
+        <div id="left" class="comm"></div>
+        <div id="inner"></div>
+    </div>
+
+
+    <script>
+        var display1 = document.getElementById("top");
+        var display2 = document.getElementById("right");
+        var display3 = document.getElementById("bottom");
+        var display4 = document.getElementById("left");
+        var display5 = document.getElementById("inner");
+
+        var displTemp = document.getElementsByClassName("comm");
+
+        var stars = "";
+        var count = 1;
+        var cond = true;
+
+        setInterval(function(){
+        if (cond){
+        stars +="*";
+        display1.innerHTML=stars;
+        display2.innerHTML=stars;
+        display3.innerHTML=stars;
+        display4.innerHTML=stars;
+        if (count == 15){
+        cond = false;
+        }
+        count++;
+        }
+        else {
+        stars = stars.substring(0,count);
+        display1.innerHTML = stars;
+        display2.innerHTML = stars;
+        display3.innerHTML = stars;
+        display4.innerHTML = stars;
+
+        if (count == 0){
+        cond = true;
+        }
+        count--;
+        }
+
+        },60);
+
+
+    </script>
+
+</body>
+</html>
